@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Vintage T-shirt",
+        "description": "Tie-dye Grateful Dead T-shirt",
+        "price": "$35",
+        "categories": ["clothing", "vintage"]
+    },
+    {
+        "name": "Running Shoes",
+        "description": "Lightweight running shoes with great grip",
+        "price": "$80",
+        "categories": ["clothing", "sports"]
+    },
+    {
+        "name": "Smartphone",
+        "description": "Latest model with high-resolution camera",
+        "price": "$999",
+        "categories": ["electronics"]
+    },
+    {
+        "name": "Bluetooth Speaker",
+        "description": "Portable speaker with deep bass",
+        "price": "$50",
+        "categories": ["electronics"]
+    },
+    {
+        "name": "Backpack",
+        "description": "Water-resistant travel backpack",
+        "price": "$45",
+        "categories": ["clothing"]
+    },
+    {
+        "name": "Yoga Mat",
+        "description": "Eco-friendly non-slip yoga mat",
+        "price": "$25",
+        "categories": ["sports"]
+    },
+    {
+        "name": "Wristwatch",
+        "description": "Classic leather strap wristwatch",
+        "price": "$150",
+        "categories": ["fashion"]
+    },
+    {
+        "name": "Vinyl Record",
+        "description": "Limited edition Beatles vinyl",
+        "price": "$40",
+        "categories": ["vintage"]
+    }
+]

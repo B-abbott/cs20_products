@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Products JSON</title>
+</head>
+<style>
+    .product {
+        background-color: #f9f9f9;
+        padding: 15px;
+        margin: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+<body>
+    <script>
+        // Global variable containing the products JSON
+        var products = [
+            {
+                "name": "Vintage T-shirt",
+                "description": "Tie-dye Grateful Dead T-shirt",
+                "price": "$35",
+                "categories": ["clothing", "vintage"]
+            },
+            {
+                "name": "Running Shoes",
+                "description": "Lightweight running shoes with great grip",
+                "price": "$80",
+                "categories": ["clothing", "sports"]
+            },
+            {
+                "name": "Smartphone",
+                "description": "Latest model with high-resolution camera",
+                "price": "$999",
+                "categories": ["electronics"]
+            },
+            {
+                "name": "Bluetooth Speaker",
+                "description": "Portable speaker with deep bass",
+                "price": "$50",
+                "categories": ["electronics"]
+            },
+            {
+                "name": "Backpack",
+                "description": "Water-resistant travel backpack",
+                "price": "$45",
+                "categories": ["clothing"]
+            },
+            {
+                "name": "Yoga Mat",
+                "description": "Eco-friendly non-slip yoga mat",
+                "price": "$25",
+                "categories": ["sports"]
+            },
+            {
+                "name": "Wristwatch",
+                "description": "Classic leather strap wristwatch",
+                "price": "$150",
+                "categories": ["fashion"]
+            },
+            {
+                "name": "Vinyl Record",
+                "description": "Limited edition Beatles vinyl",
+                "price": "$40",
+                "categories": ["vintage"]
+            }
+        ];
+        let container = document.createElement("div"); // Create a container for products
+        document.body.appendChild(container);
+
+        for (let i = 0; i < products.length; i++) {
+            let productDiv = document.createElement("div");
+            productDiv.classList.add("product");
+
+            productDiv.innerHTML = `
+                <p><strong>${products[i].name}<strong></p>
+                <p><strong>Description:</strong> ${products[i].description}</p>
+                <p><strong>Price:</strong> ${products[i].price}</p>
+                <p><strong>Categories:</strong> ${products[i].categories.join(", ")}</p>
+            `;
+
+            container.appendChild(productDiv);
+        }
+        
+    </script>
+</body>
+</html>

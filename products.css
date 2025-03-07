@@ -1,0 +1,43 @@
+products {
+    display: block;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+product {
+    display: block;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+}
+
+name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+description {
+    display: block;
+    margin-top: 5px;
+    font-style: italic;
+    color: #555;
+}
+
+price {
+    display: block;
+    font-weight: bold;
+    color: #c00;
+    margin-top: 5px;
+}
+
+category {
+    display: inline-block;
+    background-color: #0073e6;
+    color: white;
+    padding: 2px 6px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 12px;
+}
