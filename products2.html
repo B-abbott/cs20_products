@@ -37,26 +37,31 @@
 <body>
     <button type="button" id="getJ">Click to fill list</button>
     <script>
-        //put json online and use that path in the $get
-        $.get("C:/cs20/Product list/products.json",function(data) {
-        var products = data;
-        let container = document.createElement("div"); // Create a container for products
-        document.body.appendChild(container);
-
-        for (let i = 0; i < products.length; i++) {
-            let productDiv = document.createElement("div");
-            productDiv.classList.add("product");
-
-            productDiv.innerHTML = `
-                <p><strong>${products[i].name}<strong></p>
-                <p><strong>Description:</strong> ${products[i].description}</p>
-                <p><strong>Price:</strong> ${products[i].price}</p>
-                <p><strong>Categories:</strong> ${products[i].categories.join(", ")}</p>
-            `;
-
-            container.appendChild(productDiv);
-        }
-        })
+        document.getElementById("getJ").addEventListener("click", function() {
+            // Hide the button when clicked
+            this.style.display = 'none';
+    
+            // Get the JSON data
+            $.get("https://b-abbott.github.io/cs20_products/products.json", function(data) {
+                var products = data;
+                let container = document.createElement("div"); // Create a container for products
+                document.body.appendChild(container);
+    
+                for (let i = 0; i < products.length; i++) {
+                    let productDiv = document.createElement("div");
+                    productDiv.classList.add("product");
+    
+                    productDiv.innerHTML = `
+                        <p><strong>${products[i].name}<strong></p>
+                        <p><strong>Description:</strong> ${products[i].description}</p>
+                        <p><strong>Price:</strong> ${products[i].price}</p>
+                        <p><strong>Categories:</strong> ${products[i].categories.join(", ")}</p>
+                    `;
+    
+                    container.appendChild(productDiv);
+                }
+            });
+        });
     </script>
     <div id="result"></div>
 </body>

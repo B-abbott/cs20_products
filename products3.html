@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Products JSON</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" 
+            crossorigin="anonymous"></script>
+    <style>
+        .product {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            position: absolute;
+            width: 40%;
+            height: 20%;
+            top: 50%;
+            left: 30%;
+            margin-top: 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: black; 
+            color: #007bff; 
+        }
+        select {
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        #filteredResults {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <select id="categoryFilter">
+        <option value="">Select a Category</option>
+    </select>
+    
+    <button type="button" id="filterBtn">Filter</button>
+    
+    <div id="filteredResults"></div>
+
+    <script>
+        var productsData = [];
+
+        // Fetch the JSON data as soon as the page loads
+        $.get("https://b-abbott.github.io/cs20_products/products.json", function(data) {
+            productsData = data;
+            
+            // Populate the categories dropdown
+            var categories = [];
+            for (let i = 0; i < productsData.length; i++) {
+                productsData[i].categories.forEach(function(category) {
+                    if (!categories.includes(category)) {
+                        categories.push(category);
+                    }
+                });
+            }
+
+            categories.forEach(function(category) {
+                $('#categoryFilter').append(`<option value="${category}">${category}</option>`);
+            });
+        });
+
+        // Filter products based on selected category when the filter button is clicked
+        $('#filterBtn').on('click', function() {
+            var selectedCategory = $('#categoryFilter').val();
+            $('#filteredResults').empty(); // Clear previous results
+
+            if (selectedCategory) {
+                // Find products that match the selected category
+                productsData.forEach(function(product) {
+                    if (product.categories.includes(selectedCategory)) {
+                        $('#filteredResults').append(`<p>${product.name}</p>`);
+                    }
+                });
+            } else {
+                $('#filteredResults').append('<p>Please select a category to filter.</p>');
+            }
+        });
+    </script>
+</body>
+</html>
